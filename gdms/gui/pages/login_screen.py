@@ -20,6 +20,9 @@ class LoginScreenPageContent (PageContent):
 
         self.disable_restart_buttons_row = self.builder.get_object('disable_restart_buttons_row')
         self.disable_user_list_row = self.builder.get_object('disable_user_list_row')
+        self.enable_fingerprint_authentication_row = (
+            self.builder.get_object('enable_fingerprint_authentication_row')
+        )
         self.welcome_message_row = self.builder.get_object('welcome_message_row')
         self.welcome_message_entryrow = self.builder.get_object('welcome_message_entryrow')
         self.enlarge_welcome_message_row = self.builder.get_object('enlarge_welcome_message_row')
@@ -36,6 +39,8 @@ class LoginScreenPageContent (PageContent):
     def bind_to_gsettings (self):
         login_screen_settings.bind('disable-restart-buttons', self.disable_restart_buttons_row, 'active')
         login_screen_settings.bind('disable-user-list', self.disable_user_list_row, 'active')
+        login_screen_settings.bind('enable-fingerprint-authentication',
+            self.enable_fingerprint_authentication_row, 'active')
         login_screen_settings.bind('enable-welcome-message', self.welcome_message_row, 'active')
         login_screen_settings.bind('enlarge-welcome-message', self.enlarge_welcome_message_row, 'active')
         login_screen_settings.bind('welcome-message', self.welcome_message_entryrow, 'text')

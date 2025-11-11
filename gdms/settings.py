@@ -175,6 +175,9 @@ def load_from_session():
         login_screen_settings['enable-logo'] = bool(user_settings["logo"])
         login_screen_settings['disable-restart-buttons'] = user_settings["disable-restart-buttons"]
         login_screen_settings['disable-user-list'] = user_settings["disable-user-list"]
+        login_screen_settings['enable-fingerprint-authentication'] = (
+            user_settings["enable-fingerprint-authentication"]
+        )
 
 
 def load_from_file(filename=None):
@@ -560,6 +563,9 @@ def _dconf_apply():
         welcome_message = login_screen_settings['welcome-message'].replace("'", r"\'")
         disable_restart_buttons = str(login_screen_settings['disable-restart-buttons']).lower()
         disable_user_list = str(login_screen_settings['disable-user-list']).lower()
+        enable_fingerprint_authentication = (
+            str(login_screen_settings['enable-fingerprint-authentication']).lower()
+        )
 
         gdm_conf_contents +=  "#----- Login Screen ----\n"
         gdm_conf_contents +=  "[org/gnome/login-screen]\n"
@@ -569,7 +575,10 @@ def _dconf_apply():
         gdm_conf_contents += f"banner-message-text='{welcome_message}'\n"
         gdm_conf_contents += f"disable-restart-buttons={disable_restart_buttons}\n"
         gdm_conf_contents += f"disable-user-list={disable_user_list}\n"
-
+        gdm_conf_contents += (
+            f"enable-fingerprint-authentication={enable_fingerprint_authentication}\n"
+        )
+        
         temp_conf_file.write(gdm_conf_contents)
 
     if enable_logo and logo_file:
