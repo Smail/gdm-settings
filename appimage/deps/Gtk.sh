@@ -31,6 +31,6 @@ copy ${LIBDIR}/girepository-1.0/Gsk-4.0.typelib
 copy ${LIBDIR}/girepository-1.0/Gtk-4.0.typelib
 copy /usr/share/gtk-4.0
 copy /usr/share/glib-2.0/schemas/org.gtk.gtk4.Settings.*.gschema.xml
-try_copy \
+try_copy_optional \
   "/usr/share/locale/*/LC_MESSAGES/gtk40.mo" \
   "/usr/share/locale-langpack/*/LC_MESSAGES/gtk40.mo"

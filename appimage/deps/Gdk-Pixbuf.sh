@@ -9,7 +9,7 @@ copy ${LIBDIR}/libturbojpeg.so*
 # Files
 copy ${LIBDIR}/girepository-1.0/GdkPix*-2.0.typelib
 copy ${LIBDIR}/libgdk_pixbuf-2.0.so*
-try_copy \
+try_copy_optional \
   "/usr/share/locale/*/LC_MESSAGES/gdk-pixbuf.mo" \
   "/usr/share/locale-langpack/*/LC_MESSAGES/gdk-pixbuf.mo"
 

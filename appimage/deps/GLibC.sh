@@ -36,7 +36,7 @@ copy ${LIBDIR}/libthread_db.so*
 copy ${LIBDIR}/libutil.*
 copy /usr/lib/locale/C.utf8
 copy ${LIBDIR}/rcrt1.o
-try_copy \
+try_copy_optional \
   "/usr/share/locale/*/LC_MESSAGES/libc.mo" \
   "/usr/share/locale-langpack/*/LC_MESSAGES/libc.mo"
 
